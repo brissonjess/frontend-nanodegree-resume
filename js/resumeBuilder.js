@@ -1,4 +1,18 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
- $("#main").append("Jessica Brisson");
+ var name = "Jessica Brisson";
+ var role = "Web Developer, Designer";
+ var formattedName = HTMLheaderName.replace("%data%",name);
+ var formattedRole = HTMLheaderRole.replace("%data%",role);
+
+$("#header").prepend(formattedName);
+$("#header").append(formattedRole);
+
+//name
+console.log(formattedName);
+console.log(HTMLheaderName);
+//role
+console.log(formattedRole);
+console.log(HTMLheaderRole);
+
