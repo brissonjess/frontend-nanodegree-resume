@@ -1,35 +1,55 @@
-var name = "Jessica Brisson";
-var role = "Web Developer, Designer";
-var formattedName = HTMLheaderName.replace("%data%",name);
-var formattedRole = HTMLheaderRole.replace("%data%",role);
-var skills = ["CSS3","HTML5","JavaScript","Digital Design"];
+//Elements that are no longer needed but demonstrate skills that are useful
+//var name = "Jessica Brisson";
+//var role = "Web Developer, Designer";
+//var formattedName = HTMLheaderName.replace("%data%",name);
+//var formattedRole = HTMLheaderRole.replace("%data%",role);
+//var skills = ;
+
+//Objects for my resume
 var bio = {
-	"skills": skills,
-	"name": "Jessica",
-	"contact": {
+	"name": "Jessica Brisson",
+	"role": "Web Developer / Designer",
+	"welcomeMessage": "Welcome to my resume",
+	"contacts": {
 		"phone": "780-885-4151",
-		"twitter": "@brissonjess",
 		"email": "brissonjess@gmail.com",
+		"twitter": "@brissonjess",
+		"GitHub": "github.com/brissonjess",
 		"location": "Edmonton, AB"
 	},
-	"role" : "Web Designer, Developer",
+	"skills": ["CSS3","HTML5","JavaScript","Digital Design"],
 	"pic": "images/fry.jpg"
-};
+}
+var work = {
+	"jobs": [{
+		"employer": "Edmonton Journal",
+		"title": "Graphic Designer",
+		"location": "Edmonton, AB",
+		"dates": "October 2009 - January 2016",
+		"description": "Enter job description here"
+	}, {
+		"employer": "See Magazine",
+		"title": "Journalism Intern",
+		"location": "Edmonton, AB",
+		"dates": "June 2010 - August 2010",
+		"description": "Enter job description here"
+	}]
+}
 var education = {
 	"schools": [{
 		"name": "Grant MacEwan University",
 		"city": "Edmonton, AB",
 		"degree": "Associate Degree",
-		"major": ["Journalism"],
-		"minor": "NA",
-		"graduationYears": "2008-2010"
+		"majors": ["Journalism"],
+		"dates": "2008-2010",
+		"url": "macewan.ca/Journalism"
 	}, {
 		"name": "Northern Alberta Institue of Technology",
 		"city": "Edmonton, AB",
 		"degree": "Associate Degree",
 		"major": "Computer Software Development",
-		"minor": "NA",
-		"graduationYears": "2014-Present"
+		"graduationYears": "2014-Present",
+		"url": "http://www.nait.ca/98288.htm"
 	}],
 	"onlineCourses": [{
 		"title": "JavaScript Syntax",
@@ -48,7 +68,17 @@ var education = {
 		"url": "http://www.udacity.com/course/ud775"
 	}]
 }
+var projects = {
+	"projects": [{
+		"title": "Website",
+		"dates": "2015",
+		"description": "Description of project",
+		"image": "placehold.it/100x100"
+	}]
+}
 
+/*
+NOTE: may need this section
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 $("#header").append(bio.contact.phone,
@@ -62,6 +92,8 @@ bio.education.macewanName,
 bio.education.macewanYears,
 bio.education.macewanDiploma
 );
+
+*/
 
 
 //name
