@@ -1,10 +1,3 @@
-//Elements that are no longer needed but demonstrate skills that are useful
-//var name = "Jessica Brisson";
-//var role = "Web Developer, Designer";
-//var formattedName = HTMLheaderName.replace("%data%",name);
-//var formattedRole = HTMLheaderRole.replace("%data%",role);
-//var skills = ;
-
 //Objects for my resume
 var bio = {
 	"name": "Jessica Brisson",
@@ -77,29 +70,5 @@ var projects = {
 	}]
 }
 
-/*
-NOTE: may need this section
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(bio.contact.phone,
-				bio.contact.email,
-				bio.contact.twitter,
-				bio.contact.location);
-$("#header").append(bio.skills);
-$("#main").append(bio.pic);
-$("#main").append(
-bio.education.macewanName,
-bio.education.macewanYears,
-bio.education.macewanDiploma
-);
 
-*/
-
-
-//name
-console.log(formattedName);
-console.log(HTMLheaderName);
-//role
-console.log(formattedRole);
-console.log(HTMLheaderRole);
 
