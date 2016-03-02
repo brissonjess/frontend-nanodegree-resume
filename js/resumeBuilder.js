@@ -69,6 +69,28 @@ var projects = {
 		"image": "placehold.it/100x100"
 	}]
 }
+var formattedName = HTMLheaderName.replace("%data%",bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.phone);
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+var formattedGitHub = HTMLgithub.replace("%data%",bio.contacts.GitHub);
+//var fotmattedBlog = HTMLtwitter.replace("%data%",bio.contacts.twitter);
+//var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
+var formattedBioPic = HTMLbioPic.replace("%data%",bio.pic);
+var formattedGreeting = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+$("#header").append(formattedGreeting);
+$("#header").append(formattedBioPic);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+$("#topContacts").append(formattedPhone);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedGitHub);
+//$("#topContacts").append(formattedLocation);
+
 
 if (bio.skills.length > 0){
 	//var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
@@ -76,7 +98,6 @@ if (bio.skills.length > 0){
 	var skill1 = HTMLskills.replace('%data%', bio.skills[1]);
 	var skill2 = HTMLskills.replace('%data%', bio.skills[2]);
 	var skill3 = HTMLskills.replace('%data%', bio.skills[3]);
-	$('#header').append(HTMLheaderName);
 	$('#header').append(HTMLskillsStart);
 	$('#skills').append(skill0,skill1,skill2,skill3);
 	console.log('bio.skills === true');
