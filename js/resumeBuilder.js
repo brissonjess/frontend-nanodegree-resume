@@ -79,8 +79,15 @@ if (bio.skills.length > 0){
 	$('#header').append(HTMLheaderName);
 	$('#header').append(HTMLskillsStart);
 	$('#skills').append(skill0,skill1,skill2,skill3);
-	console.log('true');
+	console.log('bio.skills === true');
 }
 else {
-	console.log('false');
+	console.log('bio.skills === false');
+}
+for (job in work.jobs){
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkEmployer.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
 }
