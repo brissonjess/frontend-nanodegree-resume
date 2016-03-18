@@ -121,3 +121,57 @@ function displayWork(){
 	}
 };
 displayWork();
+
+
+//console.log the x and y locations on click events
+
+$(document).click(function(loc) {
+  logClicks(loc.pageX, loc.pageY)
+});
+
+
+/*
+function locationizer(work_obj) {
+    var locationArray = [];
+    for (job in work_obj.jobs){
+        var newLocation = work_obj.jobs[job].location;
+        locationArray.push(newLocation);
+    }
+    return locationArray;
+
+}
+*/
+
+/*
+function inName() {
+	name = name.trim().split(" ");
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	return name[0] + " " + name[1];
+};
+*/
+
+projects.display = function(){
+	for (item in projects.projects){
+		$('#projects').append(HTMLprojectStart);
+		
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
+		$('.project-entry:last').append(formattedProjectTitle);
+		
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[item].dates);
+		$('.project-entry:last').append(formattedProjectDates);
+
+		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
+		$('.project-entry:last').append(formattedProjectDescription);
+
+		if (projects.projects[item].images.length > 0){
+			for (image in projects.projects[item].image) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[item].image[image]);
+				$('.project-entry:last').append(formattedProjectImage);
+			}
+		}
+	}
+}
+projects.display();
+
+$('#mapDiv').append(googleMap);
