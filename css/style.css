@@ -159,6 +159,10 @@ ul {
 img {
   padding: 10px;
 }
+.img-responsive{
+  max-width: 80%;
+  max-height: 80%;
+}
 
 span {
   padding: 5px;
