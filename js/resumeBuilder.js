@@ -2,7 +2,7 @@
 var bio = {
 	name: "Jessica Brisson",
 	role: "Web Designer",
-	welcomeMessage: "Welcome to my resume",
+	welcomeMessage: "Welcome to my resume. Thank you for taking the time to get to know me.",
 	contacts: {
 		phone: "780-885-4151",
 		email: "brissonjess@gmail.com",
@@ -11,7 +11,7 @@ var bio = {
 		location: "Edmonton, AB"
 	},
 	skills: ["CSS3","HTML5","JavaScript","Digital Design"],
-	pic: "images/me.jpg"
+	biopic: "images/me.jpg"
 }
 var work = {
 	jobs: [{
@@ -39,21 +39,26 @@ var work = {
 var education = {
 	schools: [{
 		name: "Grant MacEwan University",
-		city: "Edmonton, AB",
+		location: "Edmonton, AB",
 		degree: "Associate Degree",
-		major: "Journalism",
+		major: ["Journalism"],
 		date: "2008-2010",
 		url: "macewan.ca/Journalism",
 		description: "Majoring in Journalism provides you with a cross section of writing, research and reporting skills that will make you a huge asset in any newsroom. MacEwan’s Journalism major provides you access to the same kind of multimedia equipment and experience you’ll find in any modern newsroom which means that when you graduate, you can hit the ground running."
 	}, {
 		name: "Northern Alberta Institute of Technology",
-		city: "Edmonton, AB",
+		location: "Edmonton, AB",
 		degree: "Associate Degree",
-		major: "Computer Software Development",
+		major: ["Computer Software Development"],
 		date: "2014-Present",
 		url: "http://www.nait.ca/98288.html"
 	}],
 	onlineCourses: [{
+		title: "Front-end Web Developer Nanodegree",
+		school: "Udacity",
+		dates: "2016",
+		url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+	}, {
 		title: "JavaScript Syntax",
 		school: "Udacity",
 		dates: "2016",
@@ -76,8 +81,7 @@ var projects = {
 		date: "2015",
 		url: "",
 		description: "Coded a basic portfolio website based off of Udacity's development standards.",
-		image: "images/fry.jpg",
-		image: "images/portfolio.png"
+		image: ["images/fry.jpg", "images/portfolio.png"]
 	}, {
 		title: "Company Website for Moonshine Doughnuts",
 		date: "2014",
@@ -86,42 +90,31 @@ var projects = {
 		image: "images/moonshinedoughnuts.png"
 	}]
 }
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.phone);
-var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-var formattedTwitter = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-var formattedGitHub = HTMLgithub.replace("%data%",bio.contacts.GitHub);
-//var fotmattedBlog = HTMLtwitter.replace("%data%",bio.contacts.twitter);
-//var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
-var formattedBioPic = HTMLbioPic.replace("%data%",bio.pic);
-var formattedGreeting = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
-$("#header").append(formattedGreeting);
-$("#header").append(formattedBioPic);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+bio.display = function(){
+	$('#header').prepend(HTMLheaderRole.replace("%data%", bio.role));
+	$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+	$("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+	$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+	if (bio.skills.length > 0){
+		$("#header").append(HTMLskillsStart);
+		for (var skill in bio.skills){
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+		$("#skills").append(formattedSkill);
+		}
+	};
+	var formattedContactInfo = [];
+	formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
+	formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.GitHub));
+	formattedContactInfo.push(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+	formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
+	for (var contact in formattedContactInfo){
+		$("#topContacts").append(formattedContactInfo[contact]);
+		$("#footerContacts").append(formattedContactInfo[contact]);
+	}
+};
+bio.display();
 
-$("#topContacts").append(formattedPhone);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedGitHub);
-//$("#topContacts").append(formattedLocation);
-
-
-if (bio.skills.length > 0){
-	//var formattedHeaderName = HTMLheaderName.replace('%data%', bio.name);
-	var skill0 = HTMLskills.replace('%data%', bio.skills[0]);
-	var skill1 = HTMLskills.replace('%data%', bio.skills[1]);
-	var skill2 = HTMLskills.replace('%data%', bio.skills[2]);
-	var skill3 = HTMLskills.replace('%data%', bio.skills[3]);
-	$('#header').append(HTMLskillsStart);
-	$('#skills').append(skill0,skill1,skill2,skill3);
-	console.log('bio.skills === true');
-}
-else {
-	console.log('bio.skills === false');
-}
 work.display = function(){
 	for (job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
