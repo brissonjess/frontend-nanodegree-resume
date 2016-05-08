@@ -119,6 +119,7 @@ work.display = function(){
 	for (var job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedEmployerURL = HTMLworkEmployer.replace("#", work.jobs[job].url);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedEmployerTitle = formattedEmployer + formattedTitle;
 		var formattedWorkDate = HTMLworkDates.replace("%data%", work.jobs[job].date);
