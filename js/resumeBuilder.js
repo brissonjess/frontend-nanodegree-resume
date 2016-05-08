@@ -81,7 +81,7 @@ var projects = {
 		date: "2015",
 		url: "",
 		description: "Coded a basic portfolio website based off of Udacity's development standards.",
-		image: ["images/fry.jpg", "images/portfolio.png"]
+		image: ["images/portfolio.png"]
 	}, {
 		title: "Company Website for Moonshine Doughnuts",
 		date: "2014",
@@ -116,7 +116,7 @@ bio.display = function(){
 bio.display();
 
 work.display = function(){
-	for (job in work.jobs){
+	for (var job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
@@ -126,7 +126,6 @@ work.display = function(){
 		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedEmployerTitle);
 		$(".work-entry:last").append(formattedWorkDate);
-		console.log(formattedWorkDate);
 		$(".work-entry:last").append(formattedWorkLocation);
 		$(".work-entry:last").append(formattedWorkDescription);
 	}
@@ -142,6 +141,7 @@ $(document).click(function(loc) {
 
 
 /*
+"Locationizer" button that changes the way my name displays on the page.
 function locationizer(work_obj) {
     var locationArray = [];
     for (job in work_obj.jobs){
@@ -150,9 +150,7 @@ function locationizer(work_obj) {
     }
     return locationArray;
     }
-*/
 
-/*
 function inName() {
 	name = name.trim().split(" ");
 	name[1] = name[1].toUpperCase();
@@ -162,16 +160,15 @@ function inName() {
 */
 
 projects.display = function(){
-	for (item in projects.projects){
+	for (var item in projects.projects){
 		$('#projects').append(HTMLprojectStart);
 		
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
-		$('.project-entry:last').append(formattedProjectTitle);
-		
 		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[item].date);
-		$('.project-entry:last').append(formattedProjectDates);
-
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
+
+		$('.project-entry:last').append(formattedProjectTitle);
+		$('.project-entry:last').append(formattedProjectDates);
 		$('.project-entry:last').append(formattedProjectDescription);
 
 		if (projects.projects[item].image.length > 0){			
@@ -186,7 +183,6 @@ projects.display = function(){
 		}
 	}
 }
-//i = 0; j = projects.projects[item].image.length; i < j; i++
 projects.display();
 
 
