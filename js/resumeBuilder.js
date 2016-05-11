@@ -78,16 +78,16 @@ var education = {
 var projects = {
 	projects: [{
 		title: "Portfolio Website",
-		date: "2015",
+		dates: "2015",
 		url: "",
 		description: "Coded a basic portfolio website based off of Udacity's development standards.",
 		images: ["images/portfolio.png"]
 	}, {
 		title: "Company Website for Moonshine Doughnuts",
-		date: "2014",
+		dates: "2014",
 		url: "http://moonshinedoughnuts.ca/",
 		description: "Developed a fully functional company website based off of the client's needs. The layout was based on mock-ups I created.",
-		images: "images/moonshinedoughnuts.png"
+		images: ["images/moonshinedoughnuts.png"]
 	}]
 };
 
@@ -163,7 +163,7 @@ projects.display = function(){
 		$('#projects').append(HTMLprojectStart);
 		
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
-		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[item].date);
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[item].dates);
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
 
 		$('.project-entry:last').append(formattedProjectTitle);
@@ -177,8 +177,9 @@ projects.display = function(){
 				
 				console.log(formattedProjectImage);
 				console.log(projects.projects[item].length);
+				$('.project-entry:last').append(formattedProjectImage);
 			}
-			$('.project-entry:last').append(formattedProjectImage);
+			
 		}
 	}
 };
